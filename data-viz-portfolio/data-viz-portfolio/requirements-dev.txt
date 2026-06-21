@@ -1,0 +1,18 @@
+# Install everything (runtime + dev tools):
+#   pip install -r requirements-dev.txt
+
+-r requirements.txt
+
+# ── Code quality ───────────────────────────────────────────────────────────────
+black>=24.0.0
+flake8>=7.0.0
+isort>=5.13.0
+mypy>=1.8.0
+
+# ── Testing extras ─────────────────────────────────────────────────────────────
+pytest-html>=4.1.0
+pytest-xdist>=3.5.0
+
+# ── Documentation ──────────────────────────────────────────────────────────────
+mkdocs>=1.5.0
+mkdocs-material>=9.5.0

@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "data-viz-portfolio"
+version = "1.0.0"
+description = "Production-quality data visualizations built with Matplotlib & Seaborn"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "Jai Krishna", email = "your@email.com" }]
+keywords = ["data", "visualization", "matplotlib", "seaborn", "portfolio"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "matplotlib>=3.8.0",
+    "seaborn>=0.13.0",
+    "pandas>=2.1.0",
+    "numpy>=1.26.0",
+    "plotly>=5.18.0",
+    "scipy>=1.11.0",
+    "scikit-learn>=1.3.0",
+    "flask>=3.0.0",
+    "Pillow>=10.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=24.0.0",
+    "flake8>=7.0.0",
+    "isort>=5.13.0",
+    "mypy>=1.8.0",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.26.0",
+]
+
+[project.urls]
+Homepage   = "https://github.com/<your-username>/data-viz-portfolio"
+Issues     = "https://github.com/<your-username>/data-viz-portfolio/issues"
+Repository = "https://github.com/<your-username>/data-viz-portfolio"
+
+[project.scripts]
+dataviz-build = "build_all:main"
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git | \.venv | build | dist | __pycache__
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+src_paths = ["src", "tests"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning:matplotlib",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*", "**/__pycache__/*"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false

@@ -1,0 +1,15 @@
+# CODEOWNERS — auto-assign reviewers when files are changed
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for all files
+* @<your-username>
+
+# Visualization source
+/src/visualizations/ @<your-username>
+/src/utils/          @<your-username>
+
+# CI/CD workflows
+/.github/workflows/  @<your-username>
+
+# Tests
+/tests/              @<your-username>

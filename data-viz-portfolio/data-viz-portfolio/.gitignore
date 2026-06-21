@@ -1,0 +1,108 @@
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+MANIFEST
+
+# ── Virtual environments ────────────────────────────────────────────────────
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+
+# ── Testing & coverage ──────────────────────────────────────────────────────
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+htmlcov/
+test-results/
+
+# ── Jupyter Notebooks ───────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+
+# ── Type checkers ───────────────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# ── IDE / Editors ───────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+*.sublime-project
+*.sublime-workspace
+
+# ── OS generated ────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ── Logs & temp ─────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
+*.orig
+*.rej
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ── Environment variables ────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.env
+
+# ── Flask ────────────────────────────────────────────────────────────────────
+instance/
+.webassets-cache
+flask_session/
+
+# ── Large / generated files ──────────────────────────────────────────────────
+# Keep PNGs in repo for README gallery; exclude heavy exports
+assets/data/*.parquet
+assets/data/*.feather
+assets/data/*.h5
+*.zip
+
+# ── MkDocs ───────────────────────────────────────────────────────────────────
+/site

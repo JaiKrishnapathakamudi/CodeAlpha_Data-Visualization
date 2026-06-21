@@ -1,0 +1,43 @@
+name: Release — Build & Publish Artifacts
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Generate all charts
+        run: |
+          MPLBACKEND=Agg python src/build_all.py
+
+      - name: Package release bundle
+        run: |
+          mkdir -p release
+          cp -r assets/images release/
+          cp README.md CHANGELOG.md LICENSE release/
+          cd release && zip -r ../data-viz-portfolio-${{ github.ref_name }}.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: data-viz-portfolio-${{ github.ref_name }}.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
